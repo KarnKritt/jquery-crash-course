@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery crash course</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            line-height: 1.5em;
+            background-color: lightgray;
+        }
+
+        header {
+            background-color: rgb(29, 29, 29);
+            text-align: center;
+            padding: 0.5em;
+            color: cornsilk;
+        }
+
+        #container {
+            width: 90%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>jquery crash course</h1>
+    </header>
+
+    <!-- SELECTOR
+
+    <div id="container">
+        <h1 id="heading1">Heading One</h1>
+        <p id="para1">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. <span>Consequatur quos impedit laudantium</span>
+            cupiditate eos nam eaque, minus delectus dolorem esse enim voluptate doloremque ipsum tempore? Repudiandae
+            nisi explicabo placeat veniam.
+        </p>
+
+        <h1 class="heading2">Heading Two</h1>
+        <p class="para2">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. <span>Accusamus est nisi culpa neque
+                atque ducimus perferendis</span> assumenda illo, quaerat at? Vitae saepe harum, minus quo voluptates
+            voluptas eveniet officiis ad.</p>
+        <span>Consequatur quos impedit laudantium</span>
+        
+        <ul id="list">
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+        </ul>
+
+        <input type="text" placeholder="Some Text">
+        <input type="button" value="Button 1">
+        <input type="submit" value="Submit">
+
+        <a href="http://googole.com">Google</a>
+        <a href="http://yahoo.com">Yahoo</a>
+
+    </div>
+
+    <script>
+        //$('h1').hide();
+        // $('#heading1').hide();
+        // $('.heading2').hide();
+        $('p span').css('color', 'red')
+
+        $('ul#list li:first').css('color', 'blue')
+        $('ul#list li:last').css('color', 'orange')
+        $('ul#list li:even').css('background-color', 'yellow')
+        $('ul#list li:odd').css('background-color', 'darkblue')
+        $('ul#list li:nth-child(4)').css('list-style', 'upper-roman')
+
+        // $(':text').hide()
+        // $(':button').hide()
+        // $(':submit').hide()
+
+        $('[href]').css('color', 'green')
+        $('a[href="http://yahoo.com"]').css('font-style', 'italic')
+    </script> -->
+
+    <div id="container">
+        <h3>Mouse Event</h3>
+
+        <button id="btn1" class="btnClass">Button 1</button>
+        <button id="btn2">Button 2</button>
+
+        <p id="para1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, iste perferendis praesentium
+            reiciendis
+            eius, maxime, autem quisquam fugiat aperiam ducimus exercitationem! Sit, modi? Eveniet corporis sunt nisi
+            autem voluptatum quisquam!</p>
+
+        <h2 id="coords"></h2>
+    </div>
+
+    <script>
+        $(document).ready(
+            () => {
+
+                // // On Click
+                // $('#btn1').click(()=>{$('p#para1').hide()})
+                // $('#btn2').click(()=>{$('p#para1').show()})
+
+                // // Toggle
+                // $('#btn1').click(() => { $('#para1').toggle() })
+                // $('#btn2').dblclick(()=>{$('#para1').toggle()})
+
+                // // Hover
+                // $('#btn1').hover(() => { $('#para1').toggle() })
+                // $('#btn2').on('mouseenter', function(){$('#para1').toggle()})
+                // $('#btn2').on('mouseleave', function(){$('#para1').toggle()})
+
+                // // Mouse Move
+                // $('#btn1').mousemove(()=>{$('#para1').toggle()})
+                $('*').mousemove((e)=>{$('#coords').html('Coords Y: '+e.clientY+' X: '+e.clientX)})
+
+                // // Mouse Up & Down
+                // $('#btn1').mouseup(() => { $('#para1').toggle() })
+                // $('#btn2').mousedown(() => { $('#para1').toggle() })
+
+                // // Event
+                // // $('#btn1').click((e)=>{alert(e.currentTarget.id)})
+                // $('#btn2').click((e)=>{alert(e.currentTarget.outerHTML)})
+                // $('#btn1').click((e)=>{alert(e.currentTarget.className)})
+
+            }
+        )
+    </script>
+</body>
+
+</html>
