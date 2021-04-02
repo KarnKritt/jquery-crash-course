@@ -261,7 +261,7 @@
         })
     </script> -->
 
-    Effect & Animate
+    <!-- Effect & Animate
     <hr>
     <button id="btnFadeOut">Fade Out</button>
     <button id="btnFadeIn">Fade In</button>
@@ -341,8 +341,59 @@
             })
 
         })
-    </script>
+    </script> -->
 
+    Ajax
+    <div id="container">
+        <div id="result"></div>
+        <ul id="users"></ul>
+        <h3>Add Post</h3>
+        <form id="postForm" action="https://jsonplaceholder.typicode.com/posts">
+            <input type="text" id="title" placeholder="Title"><br>
+            <textarea id="body" cols="30" rows="10" placeholder="Body"></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(()=>{
+            // $('#result').load('test.html', (responseTxt, statusTxt, xhr)=>{
+            //     if(statusTxt == "success"){alert('it went fine')} else if (statusTxt == "error"){
+            //         alert('Error! '+xhr.statusText)
+            //     }             
+            // })
+
+            // $.get('test.html', (data)=>{$('#result').html(data)})
+
+            // $.getJSON('users.json', (data)=>{
+            //     $.each(data, (i, user)=>{
+            //         $('ul#users').append('<li>'+user.firstName+'</li>')
+            //     })})
+            // $.ajax({
+            //     method: 'GET',
+            //     url: 'https://jsonplaceholder.typicode.com/posts',
+            //     dataType: 'json'
+            // }).done((data)=>{
+            //     console.log(data)
+            //     $.map(data, (post, i)=>{
+            //         $('#result').append('<h3>'+post.title+'</h3><p>'+post.body+'</p>')
+            //     })
+            // })
+            $('form').submit((e)=>{
+                e.preventDefault();
+
+                var title = $('#title').val();
+                var body = $('#body').val();
+                var url = $('form').attr('action');
+
+                $.post(url, {title: title, body: body}).done((data)=>{
+                    console.log('Post Saved')
+                    console.log(data)
+                }) 
+        
+                })
+            })
+    </script>
 </body>
 
 </html>
