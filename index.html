@@ -26,6 +26,11 @@
             width: 90%;
             margin: auto;
         }
+
+        .myClass {
+            color: blue;
+            background-color: palegoldenrod;
+        }
     </style>
 </head>
 
@@ -89,6 +94,8 @@
         $('a[href="http://yahoo.com"]').css('font-style', 'italic')
     </script> -->
 
+    <!-- // Mouse Event
+
     <div id="container">
         <h3>Mouse Event</h3>
 
@@ -101,6 +108,22 @@
             autem voluptatum quisquam!</p>
 
         <h2 id="coords"></h2>
+        <hr>
+        <form id="form">
+            <label>Name</label><br>
+            <input type="text" name="name" id="name">
+            <br>
+            <label>Email</label><br>
+            <input type="email" name="email" id="email">
+            <br>
+            <label>Gender</label><br>
+            <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
     </div>
 
     <script>
@@ -122,7 +145,7 @@
 
                 // // Mouse Move
                 // $('#btn1').mousemove(()=>{$('#para1').toggle()})
-                $('*').mousemove((e)=>{$('#coords').html('Coords Y: '+e.clientY+' X: '+e.clientX)})
+                // $('*').mousemove((e)=>{$('#coords').html('Coords Y: '+e.clientY+' X: '+e.clientX)})
 
                 // // Mouse Up & Down
                 // $('#btn1').mouseup(() => { $('#para1').toggle() })
@@ -133,9 +156,94 @@
                 // $('#btn2').click((e)=>{alert(e.currentTarget.outerHTML)})
                 // $('#btn1').click((e)=>{alert(e.currentTarget.className)})
 
+                // // Form
+                // $('input').focus(function(){
+                //     $(this).css('background', 'blue')
+                // })
+
+                // $('input').blur(function(){
+                //     $(this).css('background', 'white')
+                // })
+
+                // // $('input').keyup((e)=>{console.log(e.target.value)})
+                // $('select#gender').change((e)=>{
+                //     alert(e.target.value)
+                // })
+                // $('#form').submit((e)=>{
+                //     e.preventDefault();
+                //     var name = $('input#name').val();
+                //     console.log(name)})
+
             }
         )
-    </script>
+    </script> -->
+
+    <!-- DOM Manipulation
+    <div id="container">
+        <button id="btn1">Button</button>
+        <p class="para1">This is paragraph</p>
+        <p class="para2">This is another paragraph</p>
+        <div id="myDiv"></div>
+        <input type="text" id="newItem">
+        <ul id="list">
+            <li>List 1</li>
+            <li>List 2</li>
+            <li>List 3</li>
+            <li>List 4</li>
+        </ul>
+        <a href="http://google.com">Google</a>
+
+        <ul id="users">
+
+        </ul>
+    </div>
+
+    <script>
+        $(document).ready(()=>{
+        //     $('p.para1').css({color: 'red',
+        // backgroundColor: 'lightblue'});
+        //     // $('p.para2').addClass('myClass')
+        //     $('#btn1').click(()=>{$('p.para2').toggleClass('myClass')})
+        
+        // // $('#myDiv').text('This is myDiv') 
+        // $('#myDiv').html('<h1>This is myDiv</h1>')
+        // // alert($('#myDiv').text())  
+
+        // $('ul').append('<li>Appended List</li>')
+        // $('ul').prepend('<li>Prepended List</li>')
+        // $('li:nth-child(3)').appendTo('.para1')
+        // $('li:nth-child(4)').prependTo('.para2')
+        // $('ul').before('<h2>Hello</h2>')
+        // $('ul').after('<h2>World</h3>')
+
+        // // $('ul').empty()
+        // // $('ul').detach()
+
+        // $('a').attr('target', '_blank')
+        // // $('a').removeAttr('target')
+        // $('p').wrap('<h1>')
+        // $('p').wrapAll('<h1>')
+        
+        $('#newItem').keyup((e)=>{
+            var code = e.which
+            if (code == 13){
+                e.preventDefault()
+                $('ul').append('<li>'+e.target.value+'</li>')
+            }
+        })
+
+        // var myArr = ['Brad', 'Kelley', 'Nate', 'Josh']
+        // $.each(myArr, (i, val)=>{
+        //     $('#users').append('<li>'+val+'</li>')
+        // })
+
+        var newArr = $('ul#list li').toArray()
+        $.each(newArr, (i, val)=>{
+            console.log(val.innerHTML)
+        })
+
+        })
+    </script> -->
 </body>
 
 </html>
